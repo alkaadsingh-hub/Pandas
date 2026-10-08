@@ -48,7 +48,6 @@ print(pd.Series(marks2, index = subjects, name ="student marks" ))        #"mark
 
 
 
-
 #2. series from dictionary:-
 #Using dictionary we can create a Series 
 dict = {
@@ -56,9 +55,6 @@ dict = {
     "hindi": 40,
     "english": 35,
 }
-
-
-
 print(pd.Series(dict, name ="subject marks"))
 
 
@@ -67,9 +63,7 @@ dict = {
     "age": 10,
     "marks": 80
 }
-
 print(pd.Series(dict, name ="details of a person"))
-
 
 
 
@@ -86,14 +80,12 @@ print(name1.size)        #it will print the value only not index(index means her
 print(age1.size)
 
 
-
-# # #2. dtype:-
+ #2. dtype:-
 print(name1.dtype)
 print(age1.dtype)
 
 
-
-# #3. name:-
+ #3. name:-
 fruits = ["apple", "mango", "banan", "papaya", "guava"]
 fruits1 = pd.Series(fruits, name = "fruits list")
 
