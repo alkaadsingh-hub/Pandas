@@ -1,0 +1,124 @@
+#Pandas:-
+# Pandas is a Python library used for data manipulation and data analysis.
+
+#1. Padnda series:-
+#A pandas series is like a column in a table. It is 1-D array holding data of any datatype.
+
+
+import numpy as np                 #pandas is made upon numpy so import numpy as well..although it is not mandatory.
+import pandas as pd
+
+
+#There are multiple methods to create a series:-
+
+#1.Series from lists:-       (using list we will create a series)
+#sereis contain index and value ....where value isprovided by the user and in output indexex are generated automatically.In pandas dtype of string == object
+
+
+#a.) strings
+country = ['india', 'srilanka', 'america', 'china', 'nepal']      #using this list we will create series.
+print(pd.Series(country))                                         #series is a class in pandas and we are creating an object from that 
+                                                                  # "country" is an object.
+
+
+#sereis contain index and value ....where value isprovided by the user and in output indexex are generated automatically.
+#in pandas dtype of string == object
+
+
+#b.) integer:-
+
+marks = [80, 83, 70, 40, 63, 37]
+print(pd.Series(marks))
+
+
+#c.) custom index:-
+# (assinging index to the value by replacing the original index)
+
+marks1 = [80, 30, 40, 70, 90]
+subject = ["hindi", "english", "maths", "science","histroy"]              #we will assign subject as index 
+print(pd.Series(marks1, index=subject))
+
+
+# d.) setting a name 
+# #we can provide a name to the series object 
+
+marks2 = [95, 30, 85, 25, 100]
+subjects = ["hindi", "english", "maths", "history", "science"]
+print(pd.Series(marks2, index = subjects, name ="student marks" ))        #"marks" is a reference variable where as "name" is an attribute of that object 
+
+
+
+
+#2. series from dictionary:-
+#Using dictionary we can create a Series 
+dict = {
+    "maths": 30,
+    "hindi": 40,
+    "english": 35,
+}
+
+
+
+print(pd.Series(dict, name ="subject marks"))
+
+
+dict = {
+    "name": "alka",
+    "age": 10,
+    "marks": 80
+}
+
+print(pd.Series(dict, name ="details of a person"))
+
+
+
+
+#Attributes of Series:-
+
+#1. size:-
+# #it wiil tell us about how many items or values are present in series.
+name = ["john", "arya", "dazzy", "steve"]
+age = [20, 30, 40, 60, 70, 35, 50]
+
+age1 = pd.Series(age)
+name1 = pd.Series(name)
+print(name1.size)        #it will print the value only not index(index means here if we have stored index as by name ,marks,or any variable ) 
+print(age1.size)
+
+
+
+# # #2. dtype:-
+print(name1.dtype)
+print(age1.dtype)
+
+
+
+# #3. name:-
+fruits = ["apple", "mango", "banan", "papaya", "guava"]
+fruits1 = pd.Series(fruits, name = "fruits list")
+
+print(fruits1.name)
+
+
+
+#4. is_unique:-  (important)
+#it defines that item of our Series are unique or not? uniques means there is no repetion of data in series
+print(fruits1.is_unique)
+
+
+
+#5. index:-
+var = ["a", "b","c", "d", "e"]
+idx = [20, 30, 10,"hello", "yes"]
+var1 = pd.Series(var, index = idx)
+print(var1.index)
+
+
+
+#6. values:-
+#print all the values 
+print(var1.values)
+
+
+
+
