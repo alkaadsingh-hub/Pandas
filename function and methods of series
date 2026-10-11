@@ -1,0 +1,208 @@
+#We are converting our csv file in to 
+# series:-
+
+import numpy as np
+import pandas as pd
+
+
+
+#1. read_csv:-
+
+data = pd.read_csv("subs.csv")
+print(data)
+print(type(data))                 #it is a default that read_csv stored data in "DataFrame"not in a series
+
+
+
+#let's convert DataFrame into Series:-
+#squeeze=True is no longer supported in pd.read_csv() in newer versions of Pandas. 
+#a.) data["Name"] — use this when you know the column name.( # In "name" coloumn name is stored)
+#b.) data.iloc[:, 0] — use this when you want the first column regardless of its name.
+#c.) pd.read_csv("subs.csv") — loads the CSV as a DataFrame by default.
+
+
+data1 = pd.read_csv("subs.csv")       #if data is more than read_csv print only, 5 data from starting and last 5 data .
+print(data1)
+
+data2 = data["Subscribers gained"]    #convereted DataFrame in to series
+print(data2)
+print(type(data2))                    
+
+
+
+
+# importing kholi_ipl_csv file:-
+
+game = pd.read_csv("kohli_ipl.csv")
+game1 = pd.read_csv("kohli_ipl.csv",index_col= "match_no")       #it has two colomn and we have printed "match_no" as index for "run"
+                                                                  #this will print "match_no" as an index and "runs"  as value.
+print(game)
+print(game1)
+
+
+series = game["match_no"]   #print "DataFrame" into "Series"
+print(type(series))
+
+series1 = game["runs"]
+print(series1)
+
+
+
+#importing bollywood.csv file:-
+
+bolly = pd.read_csv("bollywood.csv")
+bolly1 = pd.read_csv("bollywood.csv", index_col = "movie")   #this will print movie name as an index and actors name as value. 
+
+print(bolly)
+print(bolly1)
+
+
+# converting bollywood file from dataframe to series:-
+
+bollywood = bolly["movie"]
+print(bollywood)
+
+
+
+
+
+#Methods of series:-
+#most commonly used.
+
+#1. head method-
+#head provide preview of data
+data1 = pd.read_csv("subs.csv")  
+subs = data1.head()       #it wil provide 5 rows and colomn from starting.
+print(subs)
+
+
+kohli = pd.read_csv("kohli_ipl.csv")
+print(kohli)
+kohli1 = kohli.head(6)       #we can print as many as column and row we want
+print(kohli1)
+
+
+#2. tail method-
+#it shows data from last. 
+a = (kohli.tail())
+print(a)
+b = (data1.tail(7))
+print(b)
+
+
+#3 sample method-
+#importat - sample iused when data is biased.   eg student data, top 5 data contain students name who scored high marks and bottom row data contain less marks student data ...if we need only student name if will print top student name only or bottom but we want random students not topper neigther losser. 
+# it shows only one row and that is random from whole data.
+
+bolly = pd.read_csv("bollywood.csv")
+c = bolly.sample()    #this will print a row randomly and every time it will print different row  
+print(c)
+
+d = bolly.sample(10)  #it will randomly print 10 rows from data 
+print(d)           
+
+
+#4 value_counts method-
+# it prints the frequency of data . example we will use bollywood file and it will let us know about how many movies have been done by a particular actor or acteress   
+
+e = bolly.value_counts()
+print(e)
+
+
+#5 sort_values-
+#it sort the valuesin ascending order by default.
+#it changes values temporary.
+# if we want to change the values in original data too or permanently we can do that too ...
+# by using "inplace" keyword ex = kohli.sort_values(inplace=True)
+
+kohli3 = kohli["runs"]           #import file and convert into Series then it will provide accurate output.
+f = (kohli3.sort_values())   #it will print values in ascending order by default
+print(f)
+
+g = (kohli3.sort_values(ascending=False))#it will print values in decending order
+print(g)
+
+
+#6 sort_index-
+#can do permanent changes in original data using keyword "bolly.sort_index(inplace = True)"
+#it will sort the index in ascending order by default
+h = bolly.sort_index()
+movies = bolly["movie"]     #import file(read_csv) and convert into Series then it will provide accurate output.
+
+print(h)
+
+
+
+
+
+#mathematical methods:-
+#we can apply mathematical operations on Series.
+
+# #1. count-
+# it counts totalnumber of iteam present in Series
+#difference b/w "count" and "size" is "count" does not include missing values while "size" count missing values too.
+
+match = pd.read_csv("kohli_ipl.csv")   #import the file
+match1 = match["runs"]                 #convert into series
+print(match.count())
+
+
+#2 sum-
+#if we want to know how many subscribrs do we have 
+
+subs = pd.read_csv("subs.csv")
+subs1 = subs["Subscribers gained"]
+print(subs.sum)
+
+
+#3 product-
+# provide product of Series
+print(subs.product())    #it will provide "0" or infinite(if data is too long otherwise provide the prodcut) as output because in the middle of Series somewhere 0 is present.
+
+
+
+#Statistical methods:-
+#1 mean-
+print(subs.mean())   #provide avg
+
+
+#2 median
+#it provides the middle value of a dataset.
+print(game.median())
+
+
+#3 mode-
+# mode provides the most frequently occurring value in a dataset.
+#actor who has done maximum movies
+print(bolly.mode())
+
+
+#4 standard deviation-
+#It tells you whether the values in a dataset are close to the average(mean) or far away from it.
+print(subs.std())
+
+
+#5 variance-
+print(match.var())
+
+
+#6 min/max-
+print(subs.min())   #it will print minimum subscriber of a day
+print(subs.max())    #it will print  max  subscriber of a day.
+
+
+#7 describe-
+# it provides a summary of data
+
+print(subs.describe())
+
+
+
+
+
+
+
+
+
+
+
