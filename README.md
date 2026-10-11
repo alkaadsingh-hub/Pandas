@@ -1,88 +1,164 @@
-# 🐼 Pandas
+# 🐼 Pandas Basics
 
-**Pandas** is an open-source Python library used for **data manipulation, data analysis, and data preprocessing**. It provides easy-to-use data structures such as **Series and DataFrame** for working with structured data.
+## 📌 About Pandas
 
-## 📌 Key Features
+Pandas is an open-source Python library used for **data manipulation, data cleaning, and data analysis**. It provides two main data structures: **Series (1D)** and **DataFrame (2D)**.
 
-* Series and DataFrame
-* Data cleaning
-* Data filtering and sorting
-* Handling missing values
-* Grouping and aggregation
-* Reading and writing CSV/Excel files
-* Data analysis and preprocessing
+This repository contains notes and practical examples covering the fundamentals of Pandas.
 
-## ⚙️ Installation & Setup
+## 📚 Table of Contents
 
-### 1. Check Python Installation
+* Introduction to Pandas
+* Pandas Series
+* Pandas DataFrame
+* Data Inspection
+* Data Cleaning
+* Data Selection and Filtering
+* Data Manipulation
+* Installation
+* Basic Example
+* Learning Goals
 
-Make sure Python is installed on your system:
+## 🐍 Introduction to Pandas
 
-```bash
-python --version
-```
+* What is Pandas?
+* Creating Series from lists and dictionaries
+* Creating DataFrames from lists and dictionaries
+* Reading CSV files using `read_csv()`
 
-### 2. Create a Virtual Environment
+## 📊 Pandas Series
 
-```bash
-python -m venv venv
-```
+### Attributes
 
-Activate it:
+* `size`
+* `dtype`
+* `name`
+* `is_unique`
+* `index`
+* `values`
 
-**Windows:**
+### Methods
 
-```bash
-venv\Scripts\activate
-```
+* `head()` and `tail()`
+* `sample()`
+* `value_counts()`
+* `sort_values()`
+* `sort_index()`
 
-**macOS/Linux:**
+### Mathematical and Statistical Methods
 
-```bash
-source venv/bin/activate
-```
+* `count()`
+* `sum()`
+* `product()`
+* `mean()`
+* `median()`
+* `mode()`
+* `min()` and `max()`
+* `describe()`
 
-### 3. Install Pandas
+### Other Operations
+
+* Series indexing and editing
+* Python functions with Series
+* Boolean indexing
+* Plotting graphs using Series
+
+## 🗂️ Pandas DataFrame
+
+### Creating DataFrames
+
+* Using lists
+* Using dictionaries
+* Reading CSV files
+
+### Attributes
+
+* `shape`
+* `dtypes`
+* `index`
+* `columns`
+* `values`
+
+### Inspection Methods
+
+* `head()` and `tail()`
+* `sample()`
+* `info()`
+* `describe()`
+
+### Data Cleaning
+
+* `isnull()`
+* `duplicated()`
+* `rename()`
+* `astype()`
+
+### Data Selection
+
+* Selecting single and multiple columns
+* Selecting rows using `iloc` and `loc`
+* Selecting rows and columns together
+* Filtering DataFrames using conditions
+
+### Data Manipulation
+
+* Mathematical methods
+* Adding new columns
+* Creating columns from existing columns
+* Changing data types
+
+## ⚙️ Installation
+
+Install Pandas:
 
 ```bash
 pip install pandas
 ```
 
-### 4. Verify Installation
+Install Matplotlib for data visualization:
 
 ```bash
-python -c "import pandas as pd; print(pd.__version__)"
+pip install matplotlib
 ```
 
-If the version number is displayed, Pandas has been installed successfully.
-
-## 🚀 Import Pandas
+Import Pandas:
 
 ```python
 import pandas as pd
 ```
 
-## 📝 Simple Example
+## 💻 Basic Example
 
 ```python
 import pandas as pd
 
 data = {
-    "Name": ["Alice", "Bob", "Charlie"],
-    "Age": [20, 25, 22]
+    "Name": ["Aman", "Riya", "Rahul"],
+    "Age": [21, 22, 20],
+    "Marks": [85, 90, 78]
 }
 
 df = pd.DataFrame(data)
 
-print(df)
+print(df.head())
+print(df.describe())
+print(df["Marks"].mean())
 ```
 
-## 🎯 Uses
+## 🎯 Learning Goals
 
-Pandas is commonly used in:
+* Understand Series and DataFrames.
+* Learn data inspection, selection, and filtering.
+* Practice data cleaning and manipulation.
+* Build a foundation for Data Analysis and AI/ML.
 
-* Data Analysis
-* Data Science
-* Machine Learning
-* AI Projects
-* Exploratory Data Analysis (EDA)
+## 🛠️ Technologies Used
+
+* Python
+* Pandas
+* Matplotlib
+
+---
+
+⭐ *A collection of Pandas notes, practice exercises, and hands-on coding examples.*
+
